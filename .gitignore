@@ -1,0 +1,79 @@
+---
+
+## `.gitignore`
+
+```gitignore
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.so
+*.pyd
+*.pyo
+*.pkl
+*.egg-info/
+.eggs/
+dist/
+build/
+site/
+.venv/
+venv/
+.env
+.env.*
+
+# --- Jupyter / notebooks ---
+.ipynb_checkpoints/
+*.ipynb_convert/
+*.nbconvert.*
+
+# --- Editors / OS ---
+.vscode/
+.vscode-test/
+.idea/
+*.code-workspace
+.DS_Store
+Thumbs.db
+
+# --- Testing / coverage ---
+.coverage
+coverage.xml
+htmlcov/
+.pytest_cache/
+.tox/
+.mypy_cache/
+.dmypy.json
+ruff_cache/
+
+# --- Logs / temp ---
+*.log
+logs/
+tmp/
+temp/
+
+# --- Data outputs (generated) ---
+runs/
+output/
+results/
+figures/
+*.fig
+*.png
+*.pdf
+
+# --- Legacy MATLAB artifacts (if any get copied in) ---
+*.m~
+*.asv
+
+# --- Local data (keep input profiles in /data, but ignore large raws) ---
+data/raw/
+*.nc
+*.grib
+*.grb
+*.h5
+*.hdf5
+*.parquet
+*.feather
+
+# --- Secrets (do not commit real secrets) ---
+*.key
+*.pem
+*.crt
+secrets.*
