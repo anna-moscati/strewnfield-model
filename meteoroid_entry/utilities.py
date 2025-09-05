@@ -226,7 +226,8 @@ def get_integrator_settings(
         
     return integrator_settings
 
-def cd_of_mach(M):
+def cd_of_mach(
+    M: float) -> float:
     """
     Empirical fit for drag coefficient as a function of Mach number.
     Source: Ceplecha et al. (1998), "Meteor Phenomena and Bodies".
@@ -607,15 +608,15 @@ def dynamics_system(
     # Meteoroid
     bodies.create_empty_body('Meteoroid')
     bodies.get_body('Meteoroid').mass = meteoroid_mass
-    # aerodynamics(bodies, rho_M=density_met, F=f, central_body="Earth")
-    drag_coefficient = 1.2  
-    aero_coefficient_settings = environment_setup.aerodynamic_coefficients.constant(
-        reference_area= 1.0,  # m²
-        constant_force_coefficient=[drag_coefficient, 0, 0]  # CD, CS, CL
-    )
-    environment_setup.add_aerodynamic_coefficient_interface(
-        bodies, "Meteoroid", aero_coefficient_settings  
-    )
+    aerodynamics(bodies, rho_M=density_met, F=f, central_body="Earth")
+    # drag_coefficient = 1.2  
+    # aero_coefficient_settings = environment_setup.aerodynamic_coefficients.constant(
+    #     reference_area= 1.0,  # m²
+    #     constant_force_coefficient=[drag_coefficient, 0, 0]  # CD, CS, CL
+    # )
+    # environment_setup.add_aerodynamic_coefficient_interface(
+    #     bodies, "Meteoroid", aero_coefficient_settings  
+    # )
 
     # ----- PROPAGATION SETUP -------------------------------------------------
     # Termination settings 
